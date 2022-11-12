@@ -9,7 +9,7 @@ type PokemonListResponse = {
   }[]
 }
 const getPokemonList = async () => {
-  const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=200&offset=0', { cache: 'no-store' })
+  const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100&offset=0', { cache: 'no-store' })
   const json = await res.json() as PokemonListResponse
   const pokemons = json.results.map(pokemon => {
     const id = pokemon.url.split('/').at(-2)
