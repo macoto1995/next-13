@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 type PokemonListResponse = {
   count: number
   next: string
@@ -26,7 +28,7 @@ export default async function PokemonIndexPage() {
         pokemons.map(pokemon => (
           <div key={pokemon.id}>
             <h4>{pokemon.name}</h4> 
-            <a href={pokemon.url}>{pokemon.name}</a>
+            <Link href={pokemon.url}>{pokemon.name}</Link>
             <img alt={pokemon.name} src={pokemon.imgSrc} />
           </div>
         ))
