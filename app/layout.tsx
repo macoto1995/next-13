@@ -1,4 +1,3 @@
-import Head from 'next/head'
 
 export default function RootLayout({
   children,
@@ -7,9 +6,9 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <Head>
+      <head>
         <title>Next.js 13</title>
-      </Head>
+      </head>
       <body>
         <header>
           <div>
