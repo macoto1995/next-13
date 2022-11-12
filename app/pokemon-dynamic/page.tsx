@@ -9,8 +9,12 @@ type PokemonListResponse = {
   }[]
 }
 const getPokemonList = async () => {
+  const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+  await sleep(3000)
+  
   const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100&offset=0', { cache: 'no-store' })
   const json = await res.json() as PokemonListResponse
+  
   const pokemons = json.results.map(pokemon => {
     const id = pokemon.url.split('/').at(-2)
     const imgSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`

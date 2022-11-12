@@ -9,6 +9,9 @@ type PokemonListResponse = {
   }[]
 }
 const getPokemonList = async () => {
+  const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+  await sleep(3000)
+  
   const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100&offset=0')
   const json = await res.json() as PokemonListResponse
   const pokemons = json.results.map(pokemon => {
